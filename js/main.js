@@ -5,6 +5,9 @@ const app = Vue.createApp({
         return {
             intro: 'Welcome to my Vue template',
             carList:[],
+            carVendor:"",
+            carModel:"",
+            carPrice:0,
 
         }
     },
@@ -27,9 +30,11 @@ const app = Vue.createApp({
                     console.log(error)
                  } 
             )
-
-
-
+        },
+        GemBil(){
+            console.log("er i metoden gembil")
+            
+            
         },
     },
     computed: {
