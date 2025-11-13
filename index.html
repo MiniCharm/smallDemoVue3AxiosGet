@@ -18,12 +18,17 @@
       <input type="text" v-model="carModel" placeholder="Car Model">
       <input type="number" v-model="carPrice" placeholder="Car price">
       <button v-on:click="GemBil">Add Car</button>
+      <h3 > Satatus: {{statusCode}}</h3>
+      
       <br>
+      <input type="number" v-model="carId" placeholder="Car id">
+      <button @click="SletBil">Slet bil</button>
+
       <h2>{{carVendor+carModel+carPrice}}</h2>
       <button @click="getAllCars">Get Cars</button>
      
       <ul>
-        <li v-for="car in carList">{{car.vendor}} - {{car.model}}</li>
+        <li v-for="car in carList">{{car.id}} - {{car.vendor}} - {{car.model}}</li>
       </ul>
 
 

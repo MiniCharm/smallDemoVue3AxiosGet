@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:5180/api/cars"
+const baseUrl = "http://localhost:5180/api/cars/"
 
 const app = Vue.createApp({
     data() {
@@ -8,6 +8,8 @@ const app = Vue.createApp({
             carVendor:"",
             carModel:"",
             carPrice:0,
+            statusCode:"",
+            carId:0,
 
         }
     },
@@ -23,11 +25,13 @@ const app = Vue.createApp({
                 response => {
                     console.log(response)
                     this.carList = response.data
+                    this.statusCode=response.status
                 }
             )
             .catch(
                  error => {
                     console.log(error)
+                    
                  } 
             )
         },
@@ -39,7 +43,7 @@ const app = Vue.createApp({
             .then(
                 response => {
                     console.log(response)
-
+                    this.statusCode=response.status
                 }
             )
             .catch(
@@ -49,6 +53,22 @@ const app = Vue.createApp({
             )
             
         },
+        SletBil(){
+            console.log("er i SletBil")
+            axios.delete(baseUrl+this.carId)
+            .then(
+                response =>{
+                    console.log(response)
+                    this.statusCode=response.status
+                }
+
+            )
+            .catch(
+                error=>{
+                    console.log(error)
+                }
+            )
+        }
     },
     computed: {
         myComputed() {
