@@ -33,7 +33,20 @@ const app = Vue.createApp({
         },
         GemBil(){
             console.log("er i metoden gembil")
-            
+            //Dataen der skal benyttes i post, sendes med i bodyresponse, 
+            //som et jason object
+            axios.post(baseUrl,{"vendor":this.carVendor,"model":this.carModel,"price":this.carPrice})
+            .then(
+                response => {
+                    console.log(response)
+
+                }
+            )
+            .catch(
+                error => {
+                    console.log(error)
+                }
+            )
             
         },
     },
